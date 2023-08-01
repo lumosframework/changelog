@@ -1,0 +1,47 @@
+<style>
+/* CUSTOM STYLES */
+
+/* remove scroll bounce */
+body { overscroll-behavior: none; }
+
+/* prevent horizontal scroll */
+.page_wrap { overflow: clip; }
+
+/* enable setting w-button border radius with utilities */
+.w-button { border-radius: var(--border-radius); }
+
+/* hide container ::before & ::after */
+.w-container::before, .w-container::after { display: none; }
+
+/* empty webflow div in designer view */
+.wf-empty { padding-bottom: 0; padding-right: 0; }
+
+/* flex: reverse direction */
+[reverse-direction="true"] { flex-direction: row-reverse; }
+
+/* btn small */
+[btn-main-small="true"] { padding: 0.6rem 1rem; }
+
+/* btn hovers */
+@media (pointer: fine) {
+  a:hover [btn-main="icon"] { transform: translateX(0.2rem); }
+  a:hover [btn-play="base"] { transform: scale(1.1); }
+}
+
+/* form styles */
+/* field placeholder */
+.w-input::placeholder, .w-select::placeholder {
+  color: var(--fc2);
+}
+/* field focus */
+.w-input:focus, .w-select:focus {
+  border-color: var(--bc2);
+}
+/* checkbox and radio selected */
+.w-checkbox-input.w--redirected-checked,
+.w-radio-input.w--redirected-checked {
+  background-color: rgba(var(--brand-1), 1);
+  border-color: rgba(var(--brand-1), 1);
+}
+
+</style>

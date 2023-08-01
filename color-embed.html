@@ -1,0 +1,176 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lumosframework/lumos@v1.0.0/color.css"/>
+<style>
+/* COLOR STYLES */
+
+/**%#**/
+/* btn and link mode transitions */
+[btn-mode], [class*="bm0"],
+[link-mode], [class*="lm0"] {
+  transition-property: background-color, color, border-color;
+  transition-duration: 200ms;
+}
+/* applies default border width to cards, elements, and buttons */
+[card-mode]:not([card-mode=""]), [class*="cm0"],
+[element-mode]:not([element-mode=""]), [class*="em0"],
+[btn-mode]:not([btn-mode=""]), [class*="bm0"] {
+  --border-width: var(--bw1);
+}
+/**#%**/
+
+/* global swatches */
+html {
+  --dark-1: 34, 34, 32;
+  --dark-2: 53, 53, 49;
+  --light-1: 244, 244, 241;
+  --light-2: 255, 255, 255;
+  --brand-1: 198, 251, 80;
+  --alt-selection-bg: rgba(var(--brand-1), 1);
+  --alt-selection-fc: rgba(var(--dark-1), 1);
+}
+
+/* section mode 1 (light mode) */
+body, [section-mode="1"], [class*="sm0-1"],
+/* styles card mode 2 when inside section mode 2 */
+:is([section-mode="2"], [class*="sm0-2"]) :is([card-mode="2"], [class*="cm0-2"]) {
+  /* section mode 1 */
+  --m-bg1: rgba(var(--light-1), 1);
+  --m-fc1: rgba(var(--dark-1), 1);
+  --m-fc2: rgba(var(--dark-1), 0.7);
+  --m-bc1: rgba(var(--dark-1), 0.2);
+  --m-sc1: rgba(var(--dark-1), 1);
+  /* element mode 1 (tag) */
+  --em1-bg1: rgba(var(--brand-1), 1);
+  --em1-fc1: rgba(var(--dark-1), 1);
+  --em1-bc1: rgba(var(--dark-1), 0.2);
+  /* btn mode 1 (primary) */
+  --bm1-bg1: rgba(var(--brand-1), 1);
+  --bm1-bg1b: rgba(var(--brand-1), 1);
+  --bm1-fc1: rgba(var(--dark-1), 1);
+  --bm1-bg1-hover: rgba(var(--dark-1), 1);
+  --bm1-bg1b-hover: rgba(var(--dark-1), 1);
+  --bm1-fc1-hover: rgba(var(--light-2), 1);
+  /* btn mode 2 (secondary) */
+  --bm2-bg1b: rgba(var(--dark-1), 0.2);
+  --bm2-fc1: rgba(var(--dark-1), 1);
+  --bm2-bg1-hover: rgba(var(--dark-1), 1);
+  --bm2-bg1b-hover: rgba(var(--dark-1), 1);
+  --bm2-fc1-hover: rgba(var(--light-2), 1);
+  /* link mode 1 (tab link) */
+  --lm1-fc1: rgba(var(--dark-1), 0.5);
+  --lm1-fc1-hover: rgba(var(--dark-1), 1);
+  --lm1-bg1b-active: rgba(var(--dark-1), 1);
+  --lm1-fc1-active: rgba(var(--dark-1), 1);
+}
+
+/* section mode 2 (dark mode) */
+[section-mode="2"], [class*="sm0-2"],
+/* card mode 2 */
+[card-mode="2"], [class*="cm0-2"],
+/* styles card mode 2 when inside section mode 1 */
+:is([section-mode="1"], [class*="sm0-1"]) :is([card-mode="2"], [class*="cm0-2"]) {
+  /* section mode 2 */
+  --m-bg1: rgba(var(--dark-1), 1);
+  --m-fc1: rgba(var(--light-2), 1);
+  --m-fc2: rgba(var(--light-2), 0.7);
+  --m-bc1: rgba(var(--light-2), 0.2);
+  --m-sc1: rgba(var(--brand-1), 1);
+  /* element mode 1 (tag) */
+  --em1-bg1: rgba(var(--brand-1), 0.1);
+  --em1-fc1: rgba(var(--brand-1), 1);
+  --em1-bc1: rgba(var(--brand-1), 0.2);
+  /* btn mode 1 (primary) */
+  --bm1-bg1: rgba(var(--brand-1), 1);
+  --bm1-bg1b: rgba(var(--brand-1), 1);
+  --bm1-fc1: rgba(var(--dark-1), 1);
+  --bm1-bg1-hover: rgba(var(--light-2), 1);
+  --bm1-bg1b-hover: rgba(var(--light-2), 1);
+  --bm1-fc1-hover: rgba(var(--dark-1), 1);
+  /* btn mode 2 (secondary) */
+  --bm2-bg1b: rgba(var(--light-2), 0.2);
+  --bm2-fc1: rgba(var(--light-2), 1);
+  --bm2-bg1-hover: rgba(var(--light-2), 1);
+  --bm2-bg1b-hover: rgba(var(--light-2), 1);
+  --bm2-fc1-hover: rgba(var(--dark-1), 1);
+  /* link mode 1 (tab link) */
+  --lm1-fc1: rgba(var(--light-1), 0.6);
+  --lm1-fc1-hover: rgba(var(--light-1), 1);
+  --lm1-bg1b-active: rgba(var(--brand-1), 1);
+  --lm1-fc1-active: rgba(var(--light-1), 1);
+}
+
+/* card mode 1 when inside section mode 2 */
+:is([section-mode="2"], [class*="sm0-2"]) :is([card-mode="1"], [class*="cm0-1"]) {
+  --m-bg1: rgba(var(--dark-2), 1);
+  --m-fc2: rgba(var(--light-2), 0.7);
+  --m-bc1: rgba(var(--light-2), 0.2);
+  --m-sc1: rgba(var(--brand-1), 1);
+}
+/* card mode 1 default style */
+:is([card-mode="1"], [class*="cm0-1"]),
+/* card mode 1 when inside section mode 1 */
+:is([section-mode="1"], [class*="sm0-1"]) :is([card-mode="1"], [class*="cm0-1"]) {
+  --m-bg1: rgba(var(--light-2), 1);
+  --m-fc2: rgba(var(--dark-1), 0.7);
+  --m-bc1: rgba(var(--dark-1), 0.2);
+  --m-sc1: rgba(var(--dark-1), 1);
+}
+
+/**%{{element mode: tag}**/
+[element-mode="1"], [class*="em0-1"] {
+  --m-bg1: var(--em1-bg1);
+  --m-fc1: var(--em1-fc1);
+  --m-bc1: var(--em1-bc1);
+} /**}%**/
+
+/**%{{btn mode: solid}**/
+[btn-mode="1"], [class*="bm0-1"] {
+  --m-bg1: var(--bm1-bg1);
+  --m-fc1: var(--bm1-fc1);
+  --m-bg1-hover: var(--bm1-bg1-hover);
+  --m-fc1-hover: var(--bm1-fc1-hover);
+} /**}%**/
+
+/**%{{btn mode: outlined}**/
+[btn-mode="2"], [class*="bm0-2"] {
+  --m-bg1b: var(--bm2-bg1b);
+  --m-fc1: var(--bm2-fc1);
+  --m-bg1-hover: var(--bm2-bg1-hover);
+  --m-bg1b-hover: var(--bm2-bg1b-hover);
+  --m-fc1-hover: var(--bm2-fc1-hover);
+  --selection-bg: var(--alt-selection-bg);
+  --selection-fc: var(--alt-selection-fc);
+} /**}%**/
+
+/**%{{link mode: nav}**/
+[link-mode="1"], [class*="lm0-1"] {
+  --m-fc1: var(--lm1-fc1);
+  --m-fc1-hover: var(--lm1-fc1-hover);
+  --m-bg1b-active: var(--lm1-bg1b-active);
+  --m-fc1-active: var(--lm1-fc1-active);
+  --selection-bg: var(--alt-selection-bg);
+  --selection-fc: var(--alt-selection-fc);
+} /**}%**/
+
+/* backgrounds */
+[class*="bg0"] { background-color: transparent; }
+[class*="bg0-1"] { background-color: currentColor; }
+[class*="bg1"] { background-color: var(--bg1); border-color: var(--bg1b); }
+/* font colors */
+[class*="fc0"] { color: transparent; }
+[class*="fc0-1"] { color: currentColor; }
+[class*="fc0-2"] { color: inherit; }
+[class*="fc1"] { color: var(--fc1); }
+[class*="fc2"] { color: var(--fc2); }
+/* border colors */
+[class*="bc0"] { border-color: transparent; }
+[class*="bc0-1"] { border-color: currentColor; }
+[class*="bc0-2"] { border-color: inherit; }
+[class*="bc1"] { border-color: var(--bc1); }
+[class*="bc2"] { border-color: var(--bc2); }
+/* text stroke colors */
+[class*="sc0"] { -webkit-text-stroke-color: transparent; }
+[class*="sc0-1"] { -webkit-text-stroke-color: currentColor; }
+[class*="sc0-2"] { -webkit-text-stroke-color: inherit; }
+[class*="sc1"] { -webkit-text-stroke-color: var(--sc1); }
+
+</style>

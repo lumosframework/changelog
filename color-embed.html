@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lumosframework/lumos@v1.0.0/color.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lumosframework/lumos@v1.0.1/color.css"/>
 <style>
 /* COLOR STYLES */
 
@@ -6,7 +6,7 @@
 /* btn and link mode transitions */
 [btn-mode], [class*="bm0"],
 [link-mode], [class*="lm0"] {
-  transition-property: background-color, color, border-color;
+  transition-property: background-color, color, border-color, box-shadow;
   transition-duration: 200ms;
 }
 /* applies default border width to cards, elements, and buttons */
@@ -154,7 +154,12 @@ body, [section-mode="1"], [class*="sm0-1"],
 /* backgrounds */
 [class*="bg0"] { background-color: transparent; }
 [class*="bg0-1"] { background-color: currentColor; }
-[class*="bg1"] { background-color: var(--bg1); border-color: var(--bg1b); }
+[class*="bg1"] { 
+  background-color: var(--bg1);
+  background-image: var(--bg1i);
+  border-color: var(--bg1b);
+  box-shadow: var(--bg1s);
+}
 /* font colors */
 [class*="fc0"] { color: transparent; }
 [class*="fc0-1"] { color: currentColor; }

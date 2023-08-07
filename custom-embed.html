@@ -13,8 +13,8 @@ body { overscroll-behavior: none; }
 /* hide container ::before & ::after */
 .w-container::before, .w-container::after { display: none; }
 
-/* empty webflow div in designer view */
-.wf-empty { padding-bottom: 0; padding-right: 0; }
+/* empty div in designer view when utilities are added */
+.wf-empty[class*="--"] { padding-bottom: 0; padding-right: 0; }
 
 /* flex: reverse direction */
 [reverse-direction="true"] { flex-direction: row-reverse; }
